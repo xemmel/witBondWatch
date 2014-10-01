@@ -9,7 +9,16 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+  <nav>
+    <ul class="nav nav-pills">
+      <li>@Html.ActionLink("Home","Index","Home")</li>
+      <li>@Html.ActionLink("About","About","Home")</li>
+
+    </ul>
+  </nav>
+  <div class="container well">
     @RenderBody()
+  </div>
 
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/angular.min.js"></script>

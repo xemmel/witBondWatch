@@ -17,6 +17,12 @@ namespace witBondWatch.Web.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+          return View();
+        }
+
+
         public JsonResult getTheBonds()
         {
           var model = ScreenScraperBondHelper.GetBonds();
