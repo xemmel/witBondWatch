@@ -5,6 +5,9 @@
 
 <h2>Bonds:</h2>
 <div data-ng-app="loanApp" data-ng-controller="loanCtrl">
+    <div class="loader">
+    <img src="~/Images/ajax-loader.gif" class="ajax-loader" data-ng-show="!loaded" />
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -33,12 +36,15 @@
       $scope.x = "Clara";
       $scope.bonds = [];
       $scope.updateTime = null;
+      $scope.loaded = false;
       $scope.updateScreen = function () {
+        $scope.loaded = false;
         $http({ method: "GET", url: "/Home/getTheBonds" }).
           success(function (data) {
             console.dir(data);
             $scope.bonds = data;
             $scope.updateTime = Date();
+            $scope.loaded = true;
           }).
           error(function (data) {
             console.log("error");

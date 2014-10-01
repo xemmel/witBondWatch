@@ -28,3 +28,4 @@ c:\projects\own\witBondWatch\witBondWatch.Web\bin\System.Web.WebPages.Deployment
 c:\projects\own\witBondWatch\witBondWatch.Web\bin\System.Web.WebPages.Razor.xml
 c:\projects\own\witBondWatch\witBondWatch.Web\obj\Debug\witBondWatch.Web.dll
 c:\projects\own\witBondWatch\witBondWatch.Web\obj\Debug\witBondWatch.Web.pdb
+c:\projects\own\witBondWatch\witBondWatch.Web\obj\Debug\witBondWatch.Web.csprojResolveAssemblyReference.cache
