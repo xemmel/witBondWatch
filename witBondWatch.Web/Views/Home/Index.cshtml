@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div data-ng-app="loanApp" class="container well" data-ng-controller="loanCtrl">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Bond</th>
+        <th>Value</th>
+        <th>Diff</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="bond in bonds">
+        <td>{{bond.Issuer}}</td>
+        <td>{{bond.Value}}</td>
+        <td>{{bond.Delta}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <span class="badge">Updated: {{updateTime}}</span>
+  </div>
+</div>
+@section scripts
+{
+  <script>
+    var app = angular.module('loanApp', []);
+    app.controller('loanCtrl', function ($scope, $http,$interval) {
+      $scope.x = "Clara";
+      $scope.bonds = [];
+      $scope.updateTime = null;
+      $scope.updateScreen = function () {
+        $http({ method: "GET", url: "/Home/getTheBonds" }).
+          success(function (data) {
+            console.dir(data);
+            $scope.bonds = data;
+            $scope.updateTime = Date();
+          }).
+          error(function (data) {
+            console.log("error");
+            console.dir(data);
+          });
+      };
+      $interval(function () {
+        $scope.updateScreen();
+      }, 50000);
+      $scope.updateScreen();
+
+    });
+  </script>
+
+}

@@ -1,0 +1,26 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using witBondWatch.Web.Helpers;
+
+namespace witBondWatch.Web.Tests
+{
+  [TestClass]
+  public class ScreenScraperBondHelperTest
+  {
+    [TestMethod]
+    public void ScreenScraperBondHelperTest_GetBonds()
+    {
+      int expectedCount = 6;
+      var result = ScreenScraperBondHelper.GetBonds();
+      Assert.AreEqual(expectedCount, result.Count);
+    }
+
+    [TestMethod]
+    public void ScreenScraperBondHelperTest_GetSpecificBond()
+    {
+      string issuer = "2,5%-2047 (u. afdrag):";
+      var result = ScreenScraperBondHelper.GetSpecificBond(issuer);
+      Assert.IsFalse(result == null);
+    }
+  }
+}
