@@ -130,6 +130,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LoanHelper.cs" />
     <Compile Include="Helpers\ScreenScraperBondHelper.cs" />
     <Compile Include="Helpers\ScreenScraperHelper.cs" />
     <Compile Include="Models\BondInfo.cs" />
@@ -217,6 +218,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\App\Home\Index\App.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />

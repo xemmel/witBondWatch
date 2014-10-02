@@ -15,9 +15,12 @@ namespace witBondWatch.Web.Helpers
     public static List<BondInfo> GetBonds()
     {
       string wholeBondTitleReg = "(?<=<span class=\"graphTitle1\">)(.|\\n|\\r)*?(?=</span>)";
+      string wholeBondPercentReg = ".*?(?=%)";
+      string wholeBondYearReg = "(?<=%-).*?(?= \\()";
+
       string ValueReg = "(?<=<span class=\"graphTitle2\">)(.|\\n|\\r)*?(?=</span>)";
       string DeltaReg = "(?<=<span class=\"(red|green)_graphTitle3\">)(.|\\n|\\r)*?(?=%</span>)";
-
+      
 
       List<BondInfo> output = new List<BondInfo>();
       var rawList = ScreenScraperHelper.GetRawScreenMatches(url, rawXPath);
@@ -29,9 +32,23 @@ namespace witBondWatch.Web.Helpers
         string sDelta = Regex.Match(rawItem, DeltaReg).Value.Replace(",",".");
         decimal dDelta =  0;
         string sTitle = Regex.Match(rawItem, wholeBondTitleReg).Value;
+        
+        string sPercentage = Regex.Match(sTitle,wholeBondPercentReg).Value.Replace(",",".");
+        decimal dPercentage = 0;
+        success = Decimal.TryParse(sPercentage,out dPercentage);
+
+        string sYear = Regex.Match(sTitle, wholeBondYearReg).Value.Replace(",", ".");
+        int iYear = 0;
+        success = Int32.TryParse(sYear, out iYear);
+
 
         success = Decimal.TryParse(sDelta, out dDelta);
-        BondInfo bi = new BondInfo() { Description = rawItem, Delta = dDelta, Value = dValue,Issuer = sTitle };
+        BondInfo bi = new BondInfo() { Description = rawItem, 
+          Delta = dDelta, 
+          Value = dValue,
+          Issuer = sTitle, 
+          Percentage = dPercentage,
+        YearExperation= iYear};
         output.Add(bi);
       }
       return output;

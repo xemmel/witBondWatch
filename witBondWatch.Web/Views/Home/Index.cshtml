@@ -13,6 +13,7 @@
       <tr>
         <th>Bond</th>
         <th>Value</th>
+        <th>Actual(%)</th>
         <th>Diff</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
       <tr data-ng-repeat="bond in bonds">
         <td>{{bond.Issuer}}</td>
         <td>{{bond.Value}}</td>
+        <td>{{(bond.ActualPercentage) | number:2}}</td>
         <td>{{bond.Delta}}</td>
       </tr>
     </tbody>
@@ -30,33 +32,5 @@
 </div>
 @section scripts
 {
-  <script>
-    var app = angular.module('loanApp', []);
-    app.controller('loanCtrl', function ($scope, $http,$interval) {
-      $scope.x = "Clara";
-      $scope.bonds = [];
-      $scope.updateTime = null;
-      $scope.loaded = false;
-      $scope.updateScreen = function () {
-        $scope.loaded = false;
-        $http({ method: "GET", url: "/Home/getTheBonds" }).
-          success(function (data) {
-            console.dir(data);
-            $scope.bonds = data;
-            $scope.updateTime = Date();
-            $scope.loaded = true;
-          }).
-          error(function (data) {
-            console.log("error");
-            console.dir(data);
-          });
-      };
-      $interval(function () {
-        $scope.updateScreen();
-      }, 50000);
-      $scope.updateScreen();
-
-    });
-  </script>
-
+  <script src="~/Scripts/App/Home/Index/App.js"></script>
 }
