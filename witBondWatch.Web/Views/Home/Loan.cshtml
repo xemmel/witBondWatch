@@ -4,6 +4,9 @@
 
 <h2>Calculate win/loss:</h2>
 <div data-ng-app="loanApp" data-ng-controller="loanCtrl">
+    <div class="loader">
+    <img src="~/Images/ajax-loader.gif" class="ajax-loader" data-ng-show="!loaded" />
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-1">
@@ -11,6 +14,9 @@
       </div>
       <div class="col-md-3">
         <input type="text" data-ng-model="InputLoan" class="form-control" />
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-primary" data-ng-click="updateScreen()">Update</button>
       </div>
       <div class="col-md-2">
         Loan Type: {{bondName}}
