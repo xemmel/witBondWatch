@@ -1,0 +1,38 @@
+﻿@{
+  ViewBag.Title = "Loan";
+}
+
+<h2>Calculate win/loss:</h2>
+<div data-ng-app="loanApp" data-ng-controller="loanCtrl">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        Loan:
+      </div>
+      <div class="col-md-3">
+        <input type="text" data-ng-model="InputLoan" class="form-control" />
+      </div>
+      <div class="col-md-2">
+        Loan Type: {{bondName}}
+      </div>
+      <div class="col-md-1">
+        Value: {{bond.Value}}
+      </div>
+      <div class="col-md-1">
+        Diff: {{bond.Delta}}
+      </div>
+
+      <div class="col-md-2">
+        Owes: {{loanCorrected | number:2}}
+      </div>
+
+    </div>
+      <div>
+    <span class="badge">Updated: {{updateTime}}</span>
+  </div>
+ </div>
+
+@section scripts
+{
+  <script src="~/Scripts/App/Home/Loan/App.js"></script>
+}

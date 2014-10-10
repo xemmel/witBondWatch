@@ -17,11 +17,22 @@ namespace witBondWatch.Web.Controllers
             return View();
         }
 
+        public ActionResult Loan()
+        {
+          return View();
+        }
+        
+
         public ActionResult About()
         {
           return View();
         }
 
+        public JsonResult getTheBond(string bondName)
+        {
+          var model = ScreenScraperBondHelper.GetSpecificBond(bondName);
+          return Json(model, JsonRequestBehavior.AllowGet);
+        }
 
         public JsonResult getTheBonds()
         {
