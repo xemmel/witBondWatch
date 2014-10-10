@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -24,7 +25,7 @@ namespace witBondWatch.Web.Helpers
     public static string GetRawScreen(string addressUrl)
     {
       WebClient webClient = new WebClient();
-
+      webClient.Encoding = Encoding.UTF8;
       return webClient.DownloadString(addressUrl);
     }
   }
