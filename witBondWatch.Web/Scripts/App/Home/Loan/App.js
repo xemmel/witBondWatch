@@ -14,7 +14,7 @@ var loanCtrl = app.controller('loanCtrl', function ($scope, $http,$interval) {
       success(function (data) {
         console.dir(data);
         $scope.bond = data;
-        $scope.loanCorrected = ($scope.InputLoan * ($scope.bond.Value / 100));
+        $scope.loanCorrected = ($scope.InputLoan * ($scope.bond.OfferValue / 100));
         $scope.updateTime = Date();
         $scope.loaded = true;
 
