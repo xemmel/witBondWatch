@@ -134,6 +134,12 @@
     <Compile Include="Helpers\ScreenScraperBondHelper.cs" />
     <Compile Include="Helpers\ScreenScraperHelper.cs" />
     <Compile Include="Models\BondInfo.cs" />
+    <Compile Include="Models\BondScraper_EPN.cs" />
+    <Compile Include="Models\BondScraper_NyKredit.cs" />
+    <Compile Include="Models\BondScraper_Finans.cs" />
+    <Compile Include="Models\BondScraper_SydBank.cs" />
+    <Compile Include="Models\BondScraper_RD.cs" />
+    <Compile Include="Models\IBondScraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace witBondWatch.Web.Tests
     [TestMethod]
     public void ScreenScraperBondHelperTest_GetBonds()
     {
-      int expectedCount = 6;
+      int expectedCount = 43;
       var result = ScreenScraperBondHelper.GetBonds();
       Assert.AreEqual(expectedCount, result.Count);
     }
@@ -18,7 +18,7 @@ namespace witBondWatch.Web.Tests
     [TestMethod]
     public void ScreenScraperBondHelperTest_GetSpecificBond()
     {
-      string issuer = "2,5%-2047 (u. afdrag):";
+      string issuer = "DK0009798993";
       var result = ScreenScraperBondHelper.GetSpecificBond(issuer);
       Assert.IsFalse(result == null);
     }

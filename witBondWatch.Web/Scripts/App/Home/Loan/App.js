@@ -2,7 +2,7 @@
 
 var loanCtrl = app.controller('loanCtrl', function ($scope, $http,$interval) {
   $scope.InputLoan = 2569000;
-  $scope.bondName = "2,5%-2047 (u. afdrag):";
+  $scope.bondName = "DK0009798993";
   $scope.bond = {};
   $scope.loaded = false;
   $scope.loanCorrected = $scope.InputLoan;
@@ -12,7 +12,7 @@ var loanCtrl = app.controller('loanCtrl', function ($scope, $http,$interval) {
     //console.log("click");
     $http({ method: "GET", url: "/Home/getTheBond", params: { bondName: $scope.bondName } }).
       success(function (data) {
-       
+        console.dir(data);
         $scope.bond = data;
         $scope.loanCorrected = ($scope.InputLoan * ($scope.bond.Value / 100));
         $scope.updateTime = Date();

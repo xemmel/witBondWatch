@@ -12,6 +12,7 @@ namespace witBondWatch.Web.Models
     public decimal Percentage { get; set; }
     public int YearExperation { get; set; }
     public decimal Value { get; set; }
+    public decimal OfferValue { get; set; }
     public decimal Delta { get; set; }
     public string Issuer { get; set; }
     public string Description { get; set; }

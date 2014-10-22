@@ -1,11 +1,10 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+  ViewBag.Title = "Index";
 }
 
 <h2>Bonds:</h2>
 <div data-ng-app="loanApp" data-ng-controller="loanCtrl">
-    <div class="loader">
+  <div class="loader">
     <img src="~/Images/ajax-loader.gif" class="ajax-loader" data-ng-show="!loaded" />
   </div>
   <table class="table table-striped">
@@ -13,6 +12,9 @@
       <tr>
         <th>Bond</th>
         <th>Value</th>
+        <th>Offer Value</th>
+        <th>%</th>
+        <th>Year</th>
         <th>Actual(%)</th>
         <th>Diff</th>
       </tr>
@@ -21,6 +23,9 @@
       <tr data-ng-repeat="bond in bonds">
         <td>{{bond.Issuer}}</td>
         <td>{{bond.Value}}</td>
+        <td>{{bond.OfferValue}}</td>
+        <td>{{bond.Percentage}}</td>
+        <td>{{bond.YearExperation}}</td>
         <td>{{(bond.ActualPercentage) | number:2}}</td>
         <td>{{bond.Delta}}</td>
       </tr>
