@@ -10,7 +10,7 @@ namespace witBondWatch.Web.Tests
     [TestMethod]
     public void ScreenScraperBondHelperTest_GetBonds()
     {
-      int expectedCount = 43;
+      int expectedCount = 2;
       var result = ScreenScraperBondHelper.GetBonds();
       Assert.AreEqual(expectedCount, result.Count);
     }
