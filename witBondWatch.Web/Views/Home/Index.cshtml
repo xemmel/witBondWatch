@@ -10,9 +10,8 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Bond</th>
-        <th>Value</th>
-        <th>Offer Value</th>
+  @*      <th>Bond</th>
+  *@      <th>Value</th>
         <th>%</th>
         <th>Year</th>
         <th>Actual(%)</th>
@@ -21,13 +20,12 @@
     </thead>
     <tbody>
       <tr data-ng-repeat="bond in bonds">
-        <td>{{bond.Issuer}}</td>
-        <td>{{bond.Value}}</td>
-        <td>{{bond.OfferValue}}</td>
+   @*     <td>{{bond.Issuer}}</td>
+   *@     <td>{{bond.OfferValue}}</td>
         <td>{{bond.Percentage}}</td>
         <td>{{bond.YearExperation}}</td>
         <td>{{(bond.ActualPercentage) | number:2}}</td>
-        <td>{{bond.Delta}}</td>
+        <td>{{(bond.OfferValue - bond.Value) | number:2}}</td>
       </tr>
     </tbody>
   </table>

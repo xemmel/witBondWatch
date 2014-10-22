@@ -13,7 +13,7 @@ namespace witBondWatch.Web.Helpers
     public static List<BondInfo> GetBonds()
     {
       IBondScraper bs = new BondScraper_NyKredit();
-      return bs.GetBonds().Where(b => ((b.YearExperation == 2047) && (b.Percentage == 2.5m))).ToList();
+      return bs.GetBonds().Where(b => ((b.YearExperation >= 2027) && (b.Value < 100))).ToList();
     }
 
 
