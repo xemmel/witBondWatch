@@ -28,13 +28,21 @@ namespace witBondWatch.Web.Models
         string sValue = Regex.Matches(rawItem, ValueReg)[0].Value.Replace(",", ".").Trim();
         decimal dValue = 0;
         bool success = Decimal.TryParse(sValue, out dValue);
-
-        string sOfferValue = Regex.Matches(rawItem, ValueReg)[1].Value.Replace(",", ".").Trim();
         decimal dOfferValue = 0;
-        success = Decimal.TryParse(sOfferValue, out dOfferValue);
+
+        try
+        {
+          string sOfferValue = Regex.Matches(rawItem, ValueReg)[1].Value.Replace(",", ".").Trim();
+          success = Decimal.TryParse(sOfferValue, out dOfferValue);
+        }
+        catch (Exception)
+        {
+          dOfferValue = dValue;
+        }
     
-        string sDelta = Regex.Match(rawItem, DeltaReg).Value.Replace(",", ".");
-        decimal dDelta = 0;
+        //string sDelta = Regex.Match(rawItem, DeltaReg).Value.Replace(",", ".");
+        decimal dDelta = (dOfferValue - dValue);
+        //decimal dDelta = 10;
         string sTitle = Regex.Match(rawItem, wholeBondTitleReg).Value;
 
         string sPercentage = Regex.Match(rawItem, wholeBondPercentReg).Value.Replace(",", ".");
@@ -46,7 +54,7 @@ namespace witBondWatch.Web.Models
         success = Int32.TryParse(sYear, out iYear);
 
 
-        success = Decimal.TryParse(sDelta, out dDelta);
+       // success = Decimal.TryParse(sDelta, out dDelta);
         BondInfo bi = new BondInfo()
         {
           Description = rawItem,
